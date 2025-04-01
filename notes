@@ -21,3 +21,12 @@ docker compose up dev-db -d            tp start docker
  docker ps   to get container id
 
  docker logs id
+
+   prisma    - to generate query
+
+
+   yarn add @prisma
+ 
+  yarn add @prisma/client
+
+  npx prisma init    - it create .evn,   prisma/ schema.prisma
