@@ -7,5 +7,17 @@ npm install -g @nestjs/cli      -nest
 
 nest new my-nest-app    - create proj
 
+yarn start:dev           - to run
       
 nest g module user        - create module
+
+
+
+we need to the install  docker to setup the db
+
+
+docker compose up dev-db -d            tp start docker
+
+ docker ps   to get container id
+
+ docker logs id
