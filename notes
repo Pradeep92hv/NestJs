@@ -1,0 +1,9 @@
+npm install -g yarn    -- yarm
+
+
+npm install -g @nestjs/cli      -nest 
+
+nest new my-nest-app    - create proj
+
+      
+nest g module user        - create module
