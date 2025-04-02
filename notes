@@ -62,4 +62,11 @@ docker compose up dev-db -d            tp start docker
 -------------------------------------------------------
 
 
-yarn add @nestjs/config
+yarn add @nestjs/config                  -- confif module to use env varible
+
+
+
+
+
+yarn add @nestjs/passport passport @nestjs/jwt  passport-jwt 
+yarn add -D @types/passport-jwt
