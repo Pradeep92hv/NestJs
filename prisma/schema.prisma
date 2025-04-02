@@ -13,7 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
@@ -25,7 +24,9 @@ model User {
   firstName String?
   lastName  String?
 
- 
+  bookmarks Bookmark[]
+
+  @@map("users")
 }
 
 model Bookmark {
@@ -37,5 +38,8 @@ model Bookmark {
   description String?
   link        String
 
+  userId Int
+  user   User @relation(fields: [userId], references: [id])
 
+  @@map("bookmarks")
 }
