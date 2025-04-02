@@ -22,9 +22,9 @@ export class AuthService{
                 hash :hash
             }
         });
-        const { hash: _, ...sanitizedUser } = user;
+        const { hash: _, ...sanitizedUser } = user;      // deleted the hash for user obj
 
-        // return ssaved user
+        // return saved user
          return sanitizedUser;
     }catch(erorr)
     {
@@ -39,7 +39,31 @@ export class AuthService{
     }
     }
 
-    signin(){
-        return {msg: 'I am signed In'};
+    async signin(dto: AuthDto){
+        // find user by email
+
+        const user =await this.prisma.user.findUnique(
+           {
+            where :{
+                email : dto.email,
+            }
+           }
+        )
+
+
+        // if user not exist throw exception
+        if (!user) throw new ForbiddenException ("Credentails incoorect");
+
+
+        // compare pass
+        const pwMatches = await argon.verify(user.hash, dto.password);
+        // if pass incoorect throw execption
+
+        if(!pwMatches) throw new ForbiddenException ("password incoorect");
+
+        const { hash: _, ...sanitizedUser } = user;
+
+        // return ssaved user
+         return sanitizedUser;
     }
 }
