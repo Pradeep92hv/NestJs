@@ -25,6 +25,7 @@ export class AuthService{
         const { hash: _, ...sanitizedUser } = user;      // deleted the hash for user obj
 
         // return saved user
+        
          return sanitizedUser;
     }catch(erorr)
     {
