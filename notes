@@ -60,3 +60,6 @@ docker compose up dev-db -d            tp start docker
 
 
 -------------------------------------------------------
+
+
+yarn add @nestjs/config
