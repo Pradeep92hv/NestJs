@@ -43,3 +43,20 @@ docker compose up dev-db -d            tp start docker
 
 
   yarn add argon2
+
+
+
+  --------------------------------
+   "prisma:dev:deploy": "prisma migrate deploy",
+   "db:dev:rm": "docker compose rm dev-db -s -f -v",
+    "db:dev:up": "docker compose up -d dev-db",
+    "db:dev:restart": "yarn db:dev:rm && yarn db:dev:up && sleep 1 && prisma:dev:deploy",
+
+
+     Explanation of Fixes
+✔ db:dev:rm → Removes the dev-db container.
+✔ db:dev:up → Starts the dev-db container in detached mode.
+✔ db:dev:restart → First removes (rm) the database, then starts (up) it again.
+
+
+-------------------------------------------------------
