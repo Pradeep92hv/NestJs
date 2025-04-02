@@ -2,6 +2,7 @@ import { Injectable} from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
 import { AuthDto } from "./dto";
 import * as argon  from "argon2";
+import { emit } from "process";
 
 
 @Injectable()
@@ -17,6 +18,11 @@ export class AuthService{
             data :{
                 email :dto.email,
                 hash :hash
+            },
+            select :{
+                id:true,
+                email:true,
+                createdAt :true
             }
         });
         console.log(hash)
