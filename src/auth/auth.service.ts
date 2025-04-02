@@ -18,18 +18,12 @@ export class AuthService{
             data :{
                 email :dto.email,
                 hash :hash
-            },
-            select :{
-                id:true,
-                email:true,
-                createdAt :true
             }
         });
-        console.log(hash)
-        console.log(dto.email)
+        const { hash: _, ...sanitizedUser } = user;
 
         // return ssaved user
-         return user;
+         return sanitizedUser;
     }
 
     signin(){
