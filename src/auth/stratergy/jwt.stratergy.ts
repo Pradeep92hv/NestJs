@@ -5,9 +5,13 @@ import { ExtractJwt, Strategy } from "passport-jwt";
 
 
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy) {
-    validate(...args: any[]): unknown {
-        throw new Error("Method not implemented.");
+export class JwtStrategy extends PassportStrategy(
+    Strategy
+,'jwt') {
+    validate(payload:any ) {
+
+     console.log(payload)
+        return payload;
     }
     constructor(private config:ConfigService) {
         super({
@@ -16,4 +20,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
         });
     }
+
+    
 }

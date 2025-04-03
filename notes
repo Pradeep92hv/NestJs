@@ -10,7 +10,8 @@ nest new my-nest-app    - create proj
 yarn start:dev           - to run
       
 nest g module user        - create module
-nest g service user --no-spec    - tp create service within user module
+nest g service user --no-spec    - t0 create service within user module
+nest g controller user --no-spec 
 
 
 
